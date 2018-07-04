@@ -1,0 +1,17 @@
+.header {
+  justify-content: space-around;
+}
+
+/*:host {*/
+/*background-color: green;*/
+/*padding: 10px;*/
+/*display: block;*/
+/*}*/
+
+/*/deep/ h1 {*/
+/*color: red;*/
+/*}*/
+
+a {
+  cursor: pointer;
+}

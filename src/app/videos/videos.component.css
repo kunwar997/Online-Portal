@@ -1,0 +1,12 @@
+:host {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+app-video-card, span {
+  width: 200px;
+  margin: 5px;
+}

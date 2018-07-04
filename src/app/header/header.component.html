@@ -1,0 +1,10 @@
+<div class="header" fxLayout.xs="column wrap" fxLayout="row" fxLayoutGap="50px" fxLayoutGap.sm="10px"
+     fxLayoutAlign="start center" fxLayoutAlign.xs="start start"
+>
+  <img src="https://studio.invidz.com/assets/images/logo.png"  height="50" width="50">
+  <a routerLink="/dashboard/videos">Videos</a>
+  <a routerLink="/dashboard/emails">Emails</a>
+  <span fxFlex="1 1 0"></span>
+  <a fxFlexAlign="center" routerLink="/profile">{{username}}</a>
+  <a fxFlexAlign="center" (click)="logout()">logout</a>
+</div>
