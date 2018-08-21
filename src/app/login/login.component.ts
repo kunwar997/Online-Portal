@@ -4,7 +4,6 @@ import {ApiService} from '../services/api.service';
 import {Router} from '@angular/router';
 import {EventBus} from '../services/event.bus';
 import {ToastrService} from 'ngx-toastr';
-import {ProgressToastComponent} from '../progress-toast/progress-toast';
 
 @Component({
   selector: 'app-login',
@@ -28,13 +27,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.toast.error('Updated User Successfully', 'hello title', {
-        toastComponent: ProgressToastComponent,
-        progressBar: true,
-        disableTimeOut: true,
-      });
-    });
   }
 
   login() {
@@ -45,6 +37,11 @@ export class LoginComponent implements OnInit {
           this.bus.broadcast('LOGIN_SUCCESS', res.user);
           localStorage.setItem('USER_NAME', res.user.first_name + ' ' + res.user.last_name);
           localStorage.setItem('TOKEN', res.token);
+
+
+          this.toast.success('User Logged In Successfully');
+
+
           this.router.navigate(['']);
         },
         err => {
