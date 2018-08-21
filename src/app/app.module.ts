@@ -23,6 +23,8 @@ import {EventBus} from './services/event.bus';
 import {HeaderComponent} from './header/header.component';
 import {FlexAlignmentHackDirective} from './directives/flex-alignment-hack';
 import {TruncatePipe} from './pipes/truncate';
+import {ToastNoAnimation, ToastNoAnimationModule, ToastrModule} from 'ngx-toastr';
+import {ProgressToastComponent} from './progress-toast/progress-toast';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import {TruncatePipe} from './pipes/truncate';
     CenterSpinnerComponent,
     HeaderComponent,
     FlexAlignmentHackDirective,
-    TruncatePipe
+    TruncatePipe,
+    ProgressToastComponent
   ],
   imports: [
     BrowserModule,
@@ -51,10 +54,12 @@ import {TruncatePipe} from './pipes/truncate';
     MatSnackBarModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ToastrModule.forRoot()
   ],
   providers: [AuthGuard, ApiService, EventBus],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProgressToastComponent]
 })
 export class AppModule {
 }

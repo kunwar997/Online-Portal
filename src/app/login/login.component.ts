@@ -3,11 +3,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ApiService} from '../services/api.service';
 import {Router} from '@angular/router';
 import {EventBus} from '../services/event.bus';
+import {ToastrService} from 'ngx-toastr';
+import {ProgressToastComponent} from '../progress-toast/progress-toast';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  preserveWhitespaces: false
 })
 export class LoginComponent implements OnInit {
 
@@ -17,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   loading = false;
 
-  constructor(private api: ApiService, private router: Router, private bus: EventBus) {
+  constructor(private toast: ToastrService, private api: ApiService, private router: Router, private bus: EventBus) {
     this.loginForm = new FormGroup({
       username: this.userNameControl,
       password: this.passwordControl
@@ -25,6 +28,13 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.toast.error('Updated User Successfully', 'hello title', {
+        toastComponent: ProgressToastComponent,
+        progressBar: true,
+        disableTimeOut: true,
+      });
+    });
   }
 
   login() {
