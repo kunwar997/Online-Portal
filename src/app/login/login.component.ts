@@ -46,6 +46,8 @@ export class LoginComponent implements OnInit {
         },
         err => {
           console.log('Error', err);
+          this.toast.error('Log In Error');
+
         });
   }
 
